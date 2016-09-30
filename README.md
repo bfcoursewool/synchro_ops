@@ -1,6 +1,6 @@
 see https://forwardhq.com/login for host-forwarding account. 
 
-<b>To install the Synchro App dev environment: <br><b>
+<b>To install the Synchro App dev environment: <br></b>
 
 git clone git@github.com:bfcoursewool/synchro_ops.git <br />
 cd synchro_ops <br />
