@@ -16,7 +16,5 @@ fi;
 # WILCOX: We'll use this one for now
 PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] \[\e[1;37m\]'
 
-source ~/zfenv/bin/activate;
-export ZOOMFORTH_ENV=DEVELOPMENT;
-export ZOOMFORTH_LOCAL=LOCAL;
-export LD_LIBRARY_PATH=/usr/local/lib
+source ~/synchro_venv/bin/activate;
+

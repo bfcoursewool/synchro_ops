@@ -16,6 +16,6 @@ source /home/vagrant/synchro_venv/bin/activate
 # install pip packages
 cd /vagrant/synchro_app && pip install -r requirements.txt
 
-
+ln -s /vagrant/synchro_app ~/synchro_app
 
 
