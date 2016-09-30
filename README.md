@@ -12,7 +12,7 @@ git submodule update <br />
 vagrant up <br />
 vagrant ssh <br />
 
-<b> within the vagrant box... </b>
+<b> within the vagrant box... </b> <br />
 cd synchro_app
 python synchro_app
 
