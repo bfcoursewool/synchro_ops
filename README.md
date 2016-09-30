@@ -6,6 +6,8 @@ git clone git@github.com:bfcoursewool/synchro_ops.git <br />
 cd synchro_ops <br />
 git submodule init <br />
 git submodule update <br />
+cd synchro_app
+git checkout develop
 
 <b>install vagrant then: <br /></b>
 
