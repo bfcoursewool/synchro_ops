@@ -1,6 +1,13 @@
-To install the Synchro App dev environment: 
+see https://forwardhq.com/login for host-forwarding account. 
 
-git clone git@github.com:bfcoursewool/synchro_ops.git
-cd synchro_ops
-git submodule init
-git submodule update
+To install the Synchro App dev environment: <br>
+
+git clone git@github.com:bfcoursewool/synchro_ops.git <br />
+cd synchro_ops <br />
+git submodule init <br />
+git submodule update <br />
+
+install vagrant then: <br />
+
+vagrant up <br />
+vagrant ssh <br />
