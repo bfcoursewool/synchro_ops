@@ -1,0 +1,3 @@
+[submodule "synchro_app"]
+	path = synchro_app
+	url = https://github.com/bfcoursewool/synchro_app
