@@ -15,7 +15,7 @@ vagrant up <br />
 vagrant ssh <br />
 
 <b> within the vagrant box... </b> <br />
-cd synchro_app
+cd synchro_app <br />
 python synchro_app
 
 
