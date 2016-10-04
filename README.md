@@ -16,7 +16,7 @@ vagrant ssh <br />
 
 <b> within the vagrant box... </b> <br />
 cd synchro_app <br />
-python synchro_app
+python synchro_app.py
 
 
 Now you can visit localhost:1337 in a browser on your local machine and you should see the project. 
