@@ -1,0 +1,4 @@
+activate_venv
+synchro_venv
+node_modules
+.vagrant

@@ -1,0 +1,24 @@
+{
+  "name": "synchro_ops",
+  "version": "1.0.0",
+  "description": "Synchro4Lyfe",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bfcoursewool/synchro_ops.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bfcoursewool/synchro_ops/issues"
+  },
+  "homepage": "https://github.com/bfcoursewool/synchro_ops#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}
