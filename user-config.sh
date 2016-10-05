@@ -16,6 +16,10 @@ source /home/vagrant/synchro_venv/bin/activate
 # install pip packages
 cd /vagrant/synchro_app && pip install -r requirements.txt
 
+# install npm packages
+cd /vagrant && npm install
+cd /vagrant/synchro_app/bootstrap-3.3.7 && npm install
+
 ln -s /vagrant/synchro_app ~/synchro_app
 
 
