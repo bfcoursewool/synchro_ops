@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         files: {
-          'synchro_app/css/carousel.css': 'synchro_app/css/carousel.scss'
+          'synchro_app/css/carousel.css': 'synchro_app/scss/carousel.scss'
         }
       }
     },
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
     var cb = this.async();
     var child = grunt.util.spawn({
         grunt: true,
-        args: ['watch'],
+        args: ['dist'],
         opts: {
             cwd: 'synchro_app/bootstrap-3.3.7'
         }
