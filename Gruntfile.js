@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         files: {
-          'synchro_app/css/carousel.css': 'synchro_app/scss/carousel.scss'
+          'synchro_app/synchro/css/carousel.css': 'synchro_app/synchro/scss/carousel.scss'
         }
       }
     },
@@ -27,7 +27,7 @@ module.exports = function(grunt) {
         grunt: true,
         args: ['dist'],
         opts: {
-            cwd: 'synchro_app/bootstrap-3.3.7'
+            cwd: 'synchro_app/synchro/bootstrap-3.3.7'
         }
     }, function(error, result, code) {
         cb();
