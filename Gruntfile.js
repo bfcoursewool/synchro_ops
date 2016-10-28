@@ -6,8 +6,8 @@ module.exports = function(grunt) {
         separator: 'rn'
       },
       dist: {
-        src: 'synchro_app/synchro/frontend_source/shopify/shopify_test.js',
-        dest: 'synchro_app/synchro/frontend_build/compiled/shopify.js'
+        src: 'synchro_app/synchro/frontend_source/shopify/*.js',
+        dest: 'synchro_app/synchro/frontend_build/compiled/synchro_shopify.js'
       }
     },
     jshint: {
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
       }, 
       dist: {
         files: {
-          'synchro_app/synchro/frontend_build/shopify.min.js': 'synchro_app/synchro/frontend_build/compiled/shopify.js'
+          'synchro_app/synchro/frontend_build/synchro_shopify.min.js': 'synchro_app/synchro/frontend_build/compiled/synchro_shopify.js'
         }
       }
     },
@@ -46,7 +46,10 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['&lt;%= jshint.files %&gt;', 'synchro_app/synchro/scss/**/*.scss'],
+      files: [
+        'Gruntfile.js', 
+        'synchro_app/synchro/frontend_source/**/*.js',
+        'synchro_app/synchro/scss/**/*.scss'],
       tasks: ['concat', 'uglify', 'jshint', 'compass']
     }
   });
