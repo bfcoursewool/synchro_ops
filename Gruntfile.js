@@ -1,24 +1,62 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    sass: {
+    concat: {
+      options: {
+        separator: 'rn'
+      },
+      dist: {
+        src: 'synchro_app/synchro/frontend_source/shopify/shopify_test.js',
+        dest: 'synchro_app/synchro/frontend_build/compiled/shopify.js'
+      }
+    },
+    jshint: {
+      files: [
+        'Gruntfile.js', 
+        'synchro_app/synchro/frontend_source/**/*.js', 
+        'synchro_app/synchro/frontend_build/compiled/**/*.js'
+      ],
+      options: {
+        laxcomma: true,
+        globals: {
+          jQuery: true,
+          console: true,
+          module: true
+        }
+      }
+    },
+    uglify: {
+      options: {
+        banner: '/*! &lt;%= pkg.name %&gt; &lt;%= grunt.template.today("dd-mm-yyyy") %&gt; */n'
+      }, 
       dist: {
         files: {
-          'synchro_app/synchro/css/carousel.css': 'synchro_app/synchro/scss/carousel.scss'
+          'synchro_app/synchro/frontend_build/shopify.min.js': 'synchro_app/synchro/frontend_build/compiled/shopify.js'
+        }
+      }
+    },
+    compass: {
+      dist: {
+        options: {
+          sassDir: 'synchro_app/synchro/scss',
+          cssDir: 'synchro_app/synchro/css',
+          environment: 'development',
+          outputStyle: 'compressed'
         }
       }
     },
     watch: {
-      css: {
-        files: '**/*.scss',
-        tasks: ['sass']
-      }
+      files: ['&lt;%= jshint.files %&gt;', 'synchro_app/synchro/scss/**/*.scss'],
+      tasks: ['concat', 'uglify', 'jshint', 'compass']
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.registerTask('default', ['watch'])
+  grunt.registerTask('default', ['concat', 'jshint', 'uglify', 'compass', 'watch']);
 
   // Run bootstrap's Gruntfile too
   grunt.registerTask('bootstrap', function() {
@@ -27,7 +65,7 @@ module.exports = function(grunt) {
         grunt: true,
         args: ['dist'],
         opts: {
-            cwd: 'synchro_app/synchro/bootstrap-3.3.7'
+            cwd: 'synchro_app/synchro/resources/bootstrap'
         }
     }, function(error, result, code) {
         cb();
@@ -38,5 +76,5 @@ module.exports = function(grunt) {
 
   });
 
-}
+};
 

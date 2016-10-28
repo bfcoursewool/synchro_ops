@@ -21,7 +21,7 @@ rm setuptools*.zip
 
 # install npm packages
 cd /vagrant && npm install
-cd /vagrant/synchro_app/synchro/bootstrap-3.3.7 && npm install
+cd /vagrant/synchro_app/synchro/resources/bootstrap && npm install
 
 ln -s /vagrant/synchro_app ~/synchro_app
 
