@@ -5,9 +5,9 @@ module.exports = function(grunt) {
       options: {
         separator: 'rn'
       },
-      dist: {
-        src: 'synchro_app/synchro/frontend_source/shopify/*.js',
-        dest: 'synchro_app/synchro/frontend_build/compiled/synchro_shopify.js'
+      dest: {
+        src: 'synchro_app/synchro/frontend_source/**/*.js',
+        dest: 'synchro_app/synchro/frontend_build/compiled/synchro.js'
       }
     },
     jshint: {
