@@ -18,6 +18,7 @@ module.exports = function(grunt) {
       ],
       options: {
         laxcomma: true,
+        debug: true,
         globals: {
           jQuery: true,
           console: true,
@@ -27,11 +28,14 @@ module.exports = function(grunt) {
     },
     uglify: {
       options: {
-        banner: '/*! &lt;%= pkg.name %&gt; &lt;%= grunt.template.today("dd-mm-yyyy") %&gt; */n'
+        banner: '/*! <%= pkg.name %>; <%= grunt.template.today("dd-mm-yyyy") %> */\n',
+        compress: {
+          drop_debugger: false
+        }
       }, 
       dist: {
         files: {
-          'synchro_app/synchro/frontend_build/synchro_shopify.min.js': 'synchro_app/synchro/frontend_build/compiled/synchro_shopify.js'
+          'synchro_app/synchro/frontend_build/synchro.min.js': 'synchro_app/synchro/frontend_build/compiled/synchro.js'
         }
       }
     },
