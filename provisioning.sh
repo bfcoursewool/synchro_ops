@@ -8,7 +8,7 @@ sudo ln -s /usr/bin/nodejs /usr/bin/node
 sudo npm install -g grunt-cli
 sudo apt-get -y install python-pip
 sudo pip install virtualenv
-sudo apt-get install ruby-dev
+sudo apt-get -y install ruby-dev
 sudo gem install compass
 
 su -c "/vagrant/user-config.sh" vagrant
