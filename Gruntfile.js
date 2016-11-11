@@ -3,11 +3,21 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     concat: {
       options: {
-        separator: 'rn'
+        separator: '\r\n'
       },
-      dest: {
-        src: 'synchro_app/synchro/frontend_source/**/*.js',
+      shopify_sdk: {
+        src: [
+          'synchro_app/synchro/frontend_source/shopify_credentials.js',
+          'synchro_app/synchro/frontend_source/shopify_manual/*.js'
+        ],
         dest: 'synchro_app/synchro/frontend_build/compiled/synchro.js'
+      },
+      shopify_buy_button: {
+        src: [
+          'synchro_app/synchro/frontend_source/shopify_credentials.js',
+          'synchro_app/synchro/frontend_source/shopify_buy_button/*.js'
+        ],
+        dest: 'synchro_app/synchro/frontend_build/compiled/buy_button.js'
       }
     },
     jshint: {
@@ -35,7 +45,8 @@ module.exports = function(grunt) {
       }, 
       dist: {
         files: {
-          'synchro_app/synchro/frontend_build/synchro.min.js': 'synchro_app/synchro/frontend_build/compiled/synchro.js'
+          'synchro_app/synchro/frontend_build/synchro.min.js': 'synchro_app/synchro/frontend_build/compiled/synchro.js',
+          'synchro_app/synchro/frontend_build/buy_button.min.js': 'synchro_app/synchro/frontend_build/compiled/buy_button.js'
         }
       }
     },
