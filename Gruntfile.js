@@ -18,6 +18,12 @@ module.exports = function(grunt) {
           'synchro_app/synchro/frontend_source/shopify_buy_button/*.js'
         ],
         dest: 'synchro_app/synchro/frontend_build/compiled/buy_button.js'
+      }, 
+      page_effects: {
+        src: [
+          'synchro_app/synchro/frontend_source/page_effects/effects.js'
+        ],
+        dest: 'synchro_app/synchro/frontend_build/compiled/effects.js'
       }
     },
     jshint: {
@@ -46,7 +52,8 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'synchro_app/synchro/frontend_build/synchro.min.js': 'synchro_app/synchro/frontend_build/compiled/synchro.js',
-          'synchro_app/synchro/frontend_build/buy_button.min.js': 'synchro_app/synchro/frontend_build/compiled/buy_button.js'
+          'synchro_app/synchro/frontend_build/buy_button.min.js': 'synchro_app/synchro/frontend_build/compiled/buy_button.js',
+          'synchro_app/synchro/frontend_build/effects.min.js': 'synchro_app/synchro/frontend_build/compiled/effects.js'
         }
       }
     },
