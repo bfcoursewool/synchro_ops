@@ -83,23 +83,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.registerTask('default', ['concat', 'jshint', 'uglify', 'compass', 'watch']);
 
-  // Run bootstrap's Gruntfile too
-  grunt.registerTask('bootstrap', function() {
-    var cb = this.async();
-    var child = grunt.util.spawn({
-        grunt: true,
-        args: ['dist'],
-        opts: {
-            cwd: 'synchro_app/synchro/resources/bootstrap'
-        }
-    }, function(error, result, code) {
-        cb();
-    });
-
-    child.stdout.pipe(process.stdout);
-    child.stderr.pipe(process.stderr);
-
-  });
-
 };
 
