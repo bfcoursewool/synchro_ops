@@ -3,7 +3,7 @@
 TAG=$1
 
 # make sure the specified tag is actually real
-echo "+++++++++++++++++++++++++++ VERIFYING DEPLOY TAG ++++++++++++++++++++++++++++++++++++++++++"
+echo "+++++++++++++++++++++++++++ VERIFYING DEPLOY TAG ++++++++++++++++++++++++++++++++++++++++++++"
 pushd .
 cd ../synchro_app
 if ! git ls-remote --tags | grep $TAG
@@ -48,6 +48,7 @@ echo "+++++++++++++++++++++++++++ ADD GROUP B TO BACKEND SERVICE +++++++++++++++
 gcloud compute backend-services add-backend synchro-backend-service --instance-group="instance-group-$TAG-b" --balancing-mode="RATE" --max-rate-per-instance="80" --capacity-scaler="1.0" --instance-group-zone="us-east1-c"
 
 # Invalidate Cloud CDN cache
+echo "+++++++++++++++++++++++++++ INVALIDATING LOAD BALANCER CACHE ++++++++++++++++++++++++++++++++++"
 gcloud compute url-maps invalidate-cdn-cache synchro-load-balancer --path="/*"
 
 
