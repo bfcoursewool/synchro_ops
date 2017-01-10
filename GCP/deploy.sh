@@ -54,4 +54,4 @@ printf "${RED}+++++++++++++++++++++++++++ INVALIDATING LOAD BALANCER CACHE +++++
 gcloud compute url-maps invalidate-cdn-cache synchro-load-balancer --path="/*"
 
 
-# Remove the old (Green IG) from backend service
+# Remove the old (Green IG) from backend service & delete it
