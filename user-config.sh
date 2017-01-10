@@ -23,6 +23,3 @@ cd /vagrant/synchro_app/synchro/resources/bootstrap && npm install
 if [ ! -L ~/synchro_app ]; then
   ln -s /vagrant/synchro_app ~/synchro_app
 fi 
-
-export SYNCHRO_ENV="DEVELOPMENT"
-export SYNCHRO_LOCAL="LOCAL"
