@@ -5,17 +5,7 @@ if [ -f /etc/bashrc ]; then
         . /etc/bashrc;
 fi;
 
-
-# WILCOX: WHY THE FUCK IS THIS BROKEN?!?!?!
-# if [[ 500 == 0 ]] ; then
-#         PS1='\[^[[01;31m\]\h\[^[[01;34m\] \W $\[^[[00m\] ';
-# else
-#         PS1='\[^[[01;32m\]\u@\h\[^[[01;34m\] \w $\[^[[00m\] ';
-# fi;
-
-# WILCOX: We'll use this one for now
 PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] \[\e[1;37m\]'
 
 source ~/synchro_venv/bin/activate;
-export SYNCHRO_ENV="DEVELOPMENT"
-export SYNCHRO_LOCAL="LOCAL"
+export SYNCHRO_ENV="LOCAL"
