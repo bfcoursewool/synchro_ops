@@ -20,6 +20,9 @@ cd /vagrant/synchro_app && pip install -r requirements.txt
 cd /vagrant && npm install
 cd /vagrant/synchro_app/synchro/resources/bootstrap && npm install
 
+cd /vagrant/synchro_app
+alembic upgrade head
+
 if [ ! -L ~/synchro_app ]; then
   ln -s /vagrant/synchro_app ~/synchro_app
 fi 
