@@ -21,7 +21,7 @@ sed -i -e "s/\(git checkout \).*/\1$TAG/" instance_startup_script.sh
 # Make an instance template w/ Startup Script that points to the tag to be deployed
 printf "${RED}++++++++++++++++++++++++++++ CREATE INSTANCE TEMPLATE +++++++++++++++++++++++++++++++++++++++${NC}\n"
 gcloud compute instance-templates create synchro-deploy-$TAG \
---image synchro-platform-image \
+--image synchro-platform-v2-image \
 --metadata-from-file startup-script="instance_startup_script.sh"
 
 # Make 2 new IGs from the IT we just made (Blue IG)

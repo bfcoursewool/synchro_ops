@@ -3,11 +3,6 @@
 ## TODO -- Surely there is a way to do this with Chef or Ansible which would be better. 
 ## Once I have some time for the learning curve, we should use that method. 
 
-## These are now needed for all the PIP requirements to install, but
-## I'm too lazy to rebuild the base image yet so we'll do it here.
-sudo apt-get -y install libmysqlclient-dev
-sudo apt-get -y install libpython-dev
-
 # Grab the Synchro Platform from the app repo
 cd /var/www/html
 git clone https://github.com/bfcoursewool/synchro_ops.git
@@ -15,14 +10,19 @@ cd synchro_ops
 git submodule init
 git submodule update
 cd synchro_app
-git checkout v2-2
+git checkout v2-8
 
 # Move apache configs from ops repo & restart apache
 mv /var/www/html/synchro_ops/GCP/000-default.conf /etc/apache2/sites-enabled
 
+## These are now needed for all the PIP requirements to install, but
+## I'm too lazy to rebuild the base image yet so we'll do it here.
+apt-get -y install libmysqlclient-dev
+
 # Install the platform
 cd /var/www/html/synchro_ops/synchro_app 
-sudo python setup.py install
+python setup.py install
+pip install -r requirements.txt
 
 # Restart Apache
 /etc/init.d/apache2 restart
