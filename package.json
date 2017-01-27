@@ -17,13 +17,20 @@
   },
   "homepage": "https://github.com/bfcoursewool/synchro_ops#readme",
   "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "babel-cli": "^6.22.2",
+    "babel-core": "^6.22.1",
+    "babel-plugin-transform-runtime": "^6.22.0",
+    "babel-polyfill": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
     "btoa": "^1.1.2",
+    "css-loader": "^0.26.1",
     "glob": "~7.0.3",
     "grunt": "^1.0.1",
     "grunt-autoprefixer": "~3.0.4",
     "grunt-contrib-clean": "~1.0.0",
     "grunt-contrib-compress": "~1.3.0",
-    "grunt-contrib-compass": "~0.7.0",
     "grunt-contrib-concat": "~1.0.0",
     "grunt-contrib-connect": "~1.0.0",
     "grunt-contrib-copy": "~1.0.0",
@@ -46,8 +53,14 @@
     "grunt-saucelabs": "~9.0.0",
     "load-grunt-tasks": "^3.5.2",
     "markdown-it": "^8.0.0",
+    "scss-loader": "0.0.1",
     "shelljs": "^0.7.0",
     "shx": "^0.1.2",
-    "time-grunt": "^1.3.0"
+    "style-loader": "^0.13.1",
+    "time-grunt": "^1.3.0",
+    "webpack": "^1.14.0"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.22.0"
   }
 }
