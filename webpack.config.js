@@ -4,11 +4,11 @@ var webpack = require('webpack');
 module.exports = {
   entry: {
     polyfill: 'babel-polyfill',
-    gold: './synchro_app/synchro/frontend_src/gold.js'
+    gold: __dirname + '/synchro_app/synchro/frontend_src/gold.js'
   },
   output: {
-      publicPath: '/',
-      filename: 'main.js'
+    filename: 'synchro.js',
+    path: __dirname + '/synchro_app/synchro/frontend_build'
   },
   devtool: 'source-map',
   module: {
