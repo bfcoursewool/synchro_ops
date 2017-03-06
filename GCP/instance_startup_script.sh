@@ -10,7 +10,7 @@ cd synchro_ops
 git submodule init
 git submodule update
 cd synchro_app
-git checkout v2-9a
+git checkout v2-15
 
 # Move apache configs from ops repo & restart apache
 mv /var/www/html/synchro_ops/GCP/000-default.conf /etc/apache2/sites-enabled

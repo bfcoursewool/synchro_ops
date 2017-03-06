@@ -25,11 +25,11 @@ module.exports = function(grunt) {
         ],
         dest: 'synchro_app/synchro/frontend_build/compiled/effects.js'
       },
-      gold_analytics: {
+      analytics: {
         src: [
           'synchro_app/synchro/frontend_source/synchro_analytics/**/*.js'
         ],
-        dest: 'synchro_app/synchro/frontend_build/compiled/gold_analytics.js'
+        dest: 'synchro_app/synchro/frontend_build/compiled/analytics.js'
       }
     },
     jshint: {
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
           'synchro_app/synchro/frontend_build/synchro.min.js': 'synchro_app/synchro/frontend_build/compiled/synchro.js',
           'synchro_app/synchro/frontend_build/buy_button.min.js': 'synchro_app/synchro/frontend_build/compiled/buy_button.js',
           'synchro_app/synchro/frontend_build/effects.min.js': 'synchro_app/synchro/frontend_build/compiled/effects.js',
-          'synchro_app/synchro/frontend_build/gold_analytics.min.js': 'synchro_app/synchro/frontend_build/compiled/gold_analytics.js'
+          'synchro_app/synchro/frontend_build/analytics.min.js': 'synchro_app/synchro/frontend_build/compiled/analytics.js'
         }
       }
     },
