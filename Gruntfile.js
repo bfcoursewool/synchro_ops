@@ -35,7 +35,6 @@ module.exports = function(grunt) {
     jshint: {
       files: [
         'Gruntfile.js', 
-        'synchro_app/synchro/frontend_source/**/*.js', 
         'synchro_app/synchro/frontend_build/compiled/**/*.js'
       ],
       options: {
@@ -50,7 +49,7 @@ module.exports = function(grunt) {
     },
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %>; <%= grunt.template.today("dd-mm-yyyy") %> */\n',
+        banner: '/*! <%= pkg.name %>; */\n',
         compress: {
           drop_debugger: false
         }

@@ -4,7 +4,7 @@ var webpack = require('webpack');
 module.exports = {
   entry: {
     polyfill: 'babel-polyfill',
-    gold: __dirname + '/synchro_app/synchro/frontend_src/gold.js'
+    gold: __dirname + '/synchro_app/synchro/frontend_source/synchro.js'
   },
   output: {
     filename: 'synchro.js',
@@ -15,7 +15,7 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        include: path.join(__dirname, 'src'),
+        include: path.join(__dirname, 'synchro_app/synchro/frontend_source'),
         loader: 'babel-loader',
         query: {
           presets: ["es2015"],  
