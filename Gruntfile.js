@@ -78,7 +78,7 @@ module.exports = function(grunt) {
         'Gruntfile.js', 
         'synchro_app/synchro/frontend_source/**/*.js',
         'synchro_app/synchro/scss/**/*.scss'],
-      tasks: ['concat', 'uglify', 'jshint', 'compass']
+      tasks: ['compass']
     }
   });
 
@@ -87,7 +87,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.registerTask('default', ['concat', 'jshint', 'uglify', 'compass', 'watch']);
+  grunt.registerTask('default', ['compass', 'watch']);
 
 };
 
