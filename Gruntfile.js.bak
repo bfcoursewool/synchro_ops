@@ -25,16 +25,17 @@ module.exports = function(grunt) {
         ],
         dest: 'synchro_app/synchro/frontend_build/compiled/effects.js'
       },
-      analytics: {
+      gold_analytics: {
         src: [
           'synchro_app/synchro/frontend_source/synchro_analytics/**/*.js'
         ],
-        dest: 'synchro_app/synchro/frontend_build/compiled/analytics.js'
+        dest: 'synchro_app/synchro/frontend_build/compiled/gold_analytics.js'
       }
     },
     jshint: {
       files: [
         'Gruntfile.js', 
+        'synchro_app/synchro/frontend_source/**/*.js', 
         'synchro_app/synchro/frontend_build/compiled/**/*.js'
       ],
       options: {
@@ -49,7 +50,7 @@ module.exports = function(grunt) {
     },
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %>; */\n',
+        banner: '/*! <%= pkg.name %>; <%= grunt.template.today("dd-mm-yyyy") %> */\n',
         compress: {
           drop_debugger: false
         }
@@ -59,7 +60,7 @@ module.exports = function(grunt) {
           'synchro_app/synchro/frontend_build/synchro.min.js': 'synchro_app/synchro/frontend_build/compiled/synchro.js',
           'synchro_app/synchro/frontend_build/buy_button.min.js': 'synchro_app/synchro/frontend_build/compiled/buy_button.js',
           'synchro_app/synchro/frontend_build/effects.min.js': 'synchro_app/synchro/frontend_build/compiled/effects.js',
-          'synchro_app/synchro/frontend_build/analytics.min.js': 'synchro_app/synchro/frontend_build/compiled/analytics.js'
+          'synchro_app/synchro/frontend_build/gold_analytics.min.js': 'synchro_app/synchro/frontend_build/compiled/gold_analytics.js'
         }
       }
     },
@@ -78,7 +79,7 @@ module.exports = function(grunt) {
         'Gruntfile.js', 
         'synchro_app/synchro/frontend_source/**/*.js',
         'synchro_app/synchro/scss/**/*.scss'],
-      tasks: ['compass']
+      tasks: ['concat', 'uglify', 'jshint', 'compass']
     }
   });
 
@@ -87,7 +88,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.registerTask('default', ['compass', 'watch']);
+  grunt.registerTask('default', ['concat', 'jshint', 'uglify', 'compass', 'watch']);
 
 };
 
