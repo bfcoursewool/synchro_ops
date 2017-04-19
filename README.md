@@ -16,8 +16,14 @@ vagrant ssh <br />
 
 <b> within the vagrant box... </b> <br />
 cd synchro_app <br />
-python synchro_app.py
+python run.py
 
 
-Now you can visit localhost:1337 in a browser on your local machine and you should see the project. 
+Now you can visit localhost:1337/<gold/cognos/genesis> in a browser on your local machine and you should see the project. 
+
+<b>Grunt and Webpack run from the toplevel ops directory...<br /></b>
+
+cd /vagrant
+grunt
+webpack -p --watch
 
