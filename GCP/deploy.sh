@@ -44,10 +44,10 @@ sleep 30
 # Add the new IGs as backends to the synchro-backend-service
 # Group A
 printf "${RED}+++++++++++++++++++++++++++ ADD GROUP A TO BACKEND SERVICE ++++++++++++++++++++++++++++++++++${NC}\n"
-gcloud compute backend-services add-backend synchro-backend-service --instance-group="instance-group-$TAG-a" --balancing-mode="RATE" --max-rate-per-instance="80" --capacity-scaler="1.0" --instance-group-zone="us-central1-f"
+gcloud compute backend-services add-backend synchro-backend-service --global --instance-group="instance-group-$TAG-a" --balancing-mode="RATE" --max-rate-per-instance="80" --capacity-scaler="1.0" --instance-group-zone="us-central1-f"
 
 printf "${RED}+++++++++++++++++++++++++++ ADD GROUP B TO BACKEND SERVICE ++++++++++++++++++++++++++++++++++${NC}\n"
-gcloud compute backend-services add-backend synchro-backend-service --instance-group="instance-group-$TAG-b" --balancing-mode="RATE" --max-rate-per-instance="80" --capacity-scaler="1.0" --instance-group-zone="us-east1-c"
+gcloud compute backend-services add-backend synchro-backend-service --global --instance-group="instance-group-$TAG-b" --balancing-mode="RATE" --max-rate-per-instance="80" --capacity-scaler="1.0" --instance-group-zone="us-east1-c"
 
 # Invalidate Cloud CDN cache
 printf "${RED}+++++++++++++++++++++++++++ INVALIDATING LOAD BALANCER CACHE ++++++++++++++++++++++++++++++++++${NC}\n"
