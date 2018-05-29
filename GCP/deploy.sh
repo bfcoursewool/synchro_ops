@@ -17,6 +17,7 @@ popd
 
 # Modify the startup script so that it points to the tag we are deploying
 sed -i -e "s/\(git checkout \).*/\1$TAG/" instance_startup_script.sh
+sed -i -e "s/\(SetEnv CACHE_VERSION \).*/\1$TAG/" 000-default.conf
 
 # Make an instance template w/ Startup Script that points to the tag to be deployed
 printf "${RED}++++++++++++++++++++++++++++ CREATE INSTANCE TEMPLATE +++++++++++++++++++++++++++++++++++++++${NC}\n"
