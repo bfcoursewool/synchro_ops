@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var globImporter = require('node-sass-glob-importer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
@@ -11,12 +12,12 @@ module.exports = {
     path: path.resolve(__dirname, './synchro_app/synchro/static'),
     filename: '[name].bundle.js',
   },
- // plugins: [
- //   new ExtractTextPlugin({
- //     filename: 'skinmotion.css',
- //     allChunks: true
- //   })
- // ],
+  plugins: [
+    new ExtractTextPlugin({
+      filename: 'synchro.css',
+      allChunks: true
+    })
+  ],
   module: {
     rules: [
       {
@@ -31,9 +32,16 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          loader: 'css-loader!sass-loader'
-        })
+        use: ExtractTextPlugin.extract([
+          {
+            loader: 'css-loader'
+          }, {
+            loader: 'sass-loader',
+            options: {
+              importer: globImporter()
+            }
+          }
+        ])
       },
       {
         test: /\.css$/,

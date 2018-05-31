@@ -19,6 +19,10 @@ popd
 sed -i -e "s/\(git checkout \).*/\1$TAG/" instance_startup_script.sh
 sed -i -e "s/\(SetEnv CACHE_VERSION \).*/\1$TAG/" 000-default.conf
 
+
+printf "${RED}+++++++++++++++++++++++++++ TRANSPILING FRONT-END ASSETS ++++++++++++++++++++++++++++++++++++++++++++${NC}\n"
+./node_modules/.bin/webpack --define process.env.RELEASE_TAG="\"$TAG\"" --config webpack.prod.js
+
 # Make an instance template w/ Startup Script that points to the tag to be deployed
 printf "${RED}++++++++++++++++++++++++++++ CREATE INSTANCE TEMPLATE +++++++++++++++++++++++++++++++++++++++${NC}\n"
 gcloud compute instance-templates create synchro-deploy-$TAG \
