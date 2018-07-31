@@ -22,6 +22,22 @@ sed -i -e "s/\(SetEnv CACHE_VERSION \).*/\1$TAG/" 000-default.conf
 
 printf "${RED}+++++++++++++++++++++++++++ TRANSPILING FRONT-END ASSETS ++++++++++++++++++++++++++++++++++++++++++++${NC}\n"
 ./node_modules/.bin/webpack --define process.env.RELEASE_TAG="\"$TAG\"" --config webpack.prod.js
+cp synchro_app/synchro/static/synchro.bundle.js synchro_app/synchro/static/production/
+cp synchro_app/synchro/static/synchro.css synchro_app/synchro/static/production/
+mv synchro_app/synchro/static/synchro.bundle.js.map synchro_app/synchro/static/production/
+mv synchro_app/synchro/static/synchro.css.map synchro_app/synchro/static/production/
+
+printf "${RED}+++++++++++++++++++++++++++ COMPRESSING ASSETS ++++++++++++++++++++++++++++++++++++++++++++${NC}\n"
+gzip < synchro_app/synchro/static/synchro.bundle.js > synchro_app/synchro/static/production/synchro.bundle.js
+gzip < synchro_app/synchro/static/synchro.css > synchro_app/synchro/static/production/synchro.css
+
+printf "${RED}+++++++++++++++++++++++++++ UPLOADING ASSETS TO CLOUD STORAGE ++++++++++++++++++++++++++++++++++++++++++++${NC}\n"
+gsutil -h "Content-Type: application/x-javascript" -h "Content-Encoding: gzip" cp synchro_app/synchro/static/production/synchro.bundle.js gs://synchro-assets/static
+
+gsutil -h "Content-Type: text/css" -h "Content-Encoding: gzip" cp synchro_app/synchro/static/production/synchro.css gs://synchro-assets/static
+
+gsutil acl ch -u AllUsers:R gs://synchro-assets/static/synchro.bundle.js
+gsutil acl ch -u AllUsers:R gs://synchro-assets/static/synchro.css 
 
 # Make an instance template w/ Startup Script that points to the tag to be deployed
 printf "${RED}++++++++++++++++++++++++++++ CREATE INSTANCE TEMPLATE +++++++++++++++++++++++++++++++++++++++${NC}\n"
