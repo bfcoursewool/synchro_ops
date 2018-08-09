@@ -20,6 +20,10 @@ sed -i -e "s/\(git checkout \).*/\1$TAG/" instance_startup_script.sh
 sed -i -e "s/\(SetEnv CACHE_VERSION \).*/\1$TAG/" 000-default.conf
 
 
+## Take care of the front-end static assets (js and css)
+pushd .
+cd ..
+
 printf "${RED}+++++++++++++++++++++++++++ TRANSPILING FRONT-END ASSETS ++++++++++++++++++++++++++++++++++++++++++++${NC}\n"
 ./node_modules/.bin/webpack --define process.env.RELEASE_TAG="\"$TAG\"" --config webpack.prod.js
 cp synchro_app/synchro/static/synchro.bundle.js synchro_app/synchro/static/production/
@@ -38,6 +42,8 @@ gsutil -h "Content-Type: text/css" -h "Content-Encoding: gzip" cp synchro_app/sy
 
 gsutil acl ch -u AllUsers:R gs://synchro-assets/static/synchro.bundle.js
 gsutil acl ch -u AllUsers:R gs://synchro-assets/static/synchro.css 
+
+popd
 
 # Make an instance template w/ Startup Script that points to the tag to be deployed
 printf "${RED}++++++++++++++++++++++++++++ CREATE INSTANCE TEMPLATE +++++++++++++++++++++++++++++++++++++++${NC}\n"
