@@ -65,7 +65,7 @@
   "dependencies": {
     "bootstrap": "4.0.0-alpha.5",
     "d3": "^5.4.0",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "jquery-ui": "^1.12.1",
     "loadash": "0.0.1",
     "node-sass-glob-importer": "^5.1.3",
