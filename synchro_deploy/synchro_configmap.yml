@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: synchro-config
+  namespace: default
+data:
+  SYNCHRO_ENV: LOCAL
+  APP_DEBUG: True
+  HOSTNAME: besynchro.local:5000
+  SUPPORT_EMAIL: rob.m.kotz@gmail.com
+  STATIC_ASSETS_PREFIX: cdn.besynchro.com/local
