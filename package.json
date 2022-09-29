@@ -64,7 +64,7 @@
   },
   "dependencies": {
     "bootstrap": "4.0.0-alpha.5",
-    "d3": "^5.4.0",
+    "d3": "^7.6.1",
     "jquery": "^3.3.1",
     "jquery-ui": "^1.12.1",
     "loadash": "0.0.1",
