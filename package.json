@@ -47,7 +47,7 @@
     "eslint-plugin-babel": "^3.0.0",
     "eslint-plugin-react": "^3.11.3",
     "eventsource-polyfill": "^0.9.6",
-    "express": "^4.13.3",
+    "express": "^4.17.3",
     "extract-text-webpack-plugin": "^2.1.2",
     "node-sass": "^4.7.2",
     "npm": "^5.0.3",
